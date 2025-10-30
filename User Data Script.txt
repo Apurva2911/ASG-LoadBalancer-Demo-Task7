@@ -1,0 +1,26 @@
+#!/bin/bash
+# Update and install Apache
+yum update -y
+yum install -y httpd
+
+# Enable and start Apache
+systemctl enable httpd
+systemctl start httpd
+
+# Create custom HTML page
+cat <<EOF > /var/www/html/index.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome from ASG Instance</title>
+  </head>
+  <body style="text-align:center; background-color:#e6f7ff;">
+    <h1>It Works! 🎉</h1>
+    <p>This page is automatically deployed using User Data from Launch Template.</p>
+    <p>Instance ID: $(curl http://169.254.169.254/latest/meta-data/instance-id)</p>
+  </body>
+</html>
+EOF
+
+# Restart Apache to apply everything
+systemctl restart httpd
