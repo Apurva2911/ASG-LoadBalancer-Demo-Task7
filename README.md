@@ -127,6 +127,10 @@ Click Create notification
 You’ll receive an email alert whenever your Auto Scaling Group launches or terminates an EC2 instance — providing real-time updates on scaling activity.
 
 3️⃣ Create Application Load Balancer (ALB)
+An Application Load Balancer distributes incoming web traffic evenly across multiple EC2 instances.
+Operates at Layer 7 (HTTP/HTTPS) of the OSI model.
+Routes requests based on content (URL path, host, etc.).
+Performs health checks to ensure traffic only goes to healthy instances
 
 Go to Load Balancers → Create Load Balancer → Application Load Balancer
 
@@ -147,6 +151,10 @@ Create the ALB.
 ✅ Note down the DNS name of the ALB — used for web access.
 
 4️⃣ Create Auto Scaling Group (ASG)
+An Auto Scaling Group automatically adjusts the number of EC2 instances in response to demand.
+Ensures high availability by replacing unhealthy instances.
+Scales out (adds instances) when CPU usage is high.
+Scales in (terminates instances) when load decreases.
 
 Go to EC2 → Auto Scaling Groups → Create Auto Scaling Group
 
