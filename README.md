@@ -81,6 +81,51 @@ VPC: select your VPC
 
 Register no instances now (ASG will attach them later).
 
+🔔 SNS Notifications Setup
+
+To get notified when Auto Scaling launches or terminates instances, an Amazon SNS (Simple Notification Service) topic was configured:
+
+Create SNS Topic
+
+Go to Amazon SNS → Topics → Create topic
+
+Choose Standard, name it (e.g., ASG-Notifications)
+
+Click Create topic
+
+Subscribe to Topic
+
+Under the topic, click Create subscription
+
+Select Protocol: Email
+
+Enter your email address → Click Create subscription
+
+Confirm the subscription from your email inbox.
+
+Attach SNS Topic to Auto Scaling Group
+
+Go to EC2 → Auto Scaling Groups
+
+Select your ASG → Open Notifications tab → Create notification
+
+Choose the SNS topic (ASG-Notifications)
+
+Select all events:
+
+Instance Launch Successful
+
+Instance Launch Unsuccessful
+
+Instance Terminate Successful
+
+Instance Terminate Unsuccessful
+
+Click Create notification
+
+✅ Result:
+You’ll receive an email alert whenever your Auto Scaling Group launches or terminates an EC2 instance — providing real-time updates on scaling activity.
+
 3️⃣ Create Application Load Balancer (ALB)
 
 Go to Load Balancers → Create Load Balancer → Application Load Balancer
